@@ -15,23 +15,30 @@ const alumnos = [
 const notas = [38,23,34,40,21,12,33];
 
 // Función para calcular el promedio 
-const calcularPromedio = (notas) => promedio = notas / 4;  /* Dividimos cada suma de calificaciones por 4 y nos dara el promedio*/
+const calcularPromedio = (notas) => {
+    let notasPromediadas = [];
 
-// Función para mostrar los aprobados y desaprobados 
+    for (let i = 0; i < notas.length; i++) {
+        let promedio = notas[i] / 4;  /* Dividimos cada suma de calificaciones por 4 y nos dara el promedio*/
+        notasPromediadas.push(promedio);
+    }
+
+    return notasPromediadas
+}
+
+// Función para mostrar el resumen
 const mostrarResumen = (alumnos,notas) => {
-    document.write(`<h2>Notas de los alumnos</h2>`)
+    let notasPromediadas = calcularPromedio(notas)
+
     document.write('<ol>');
     for (let i = 0; i < alumnos.length; i++) {
-        let notasPromediadas = calcularPromedio(notas[i]);
-
-        if (notasPromediadas >= 6) {
-            document.write(`<li>${alumnos[i]} <br>Nota: ${notasPromediadas}<br><span style='color: #0c0'>APROBADO</span> <hr></li>`);
+        if (notasPromediadas[i] >= 6) {
+            document.write(`<li>${alumnos[i]} <br>Nota: ${notasPromediadas[i]}<br><span style='color: #0c0'>APROBADO</span> <hr></li>`);
         } else {
-            document.write(`<li>${alumnos[i]} <br>Nota: ${notasPromediadas}<br><span style='color: #c00'>DESAPROBADO</span> <hr></li>`);
+            document.write(`<li>${alumnos[i]} <br>Nota: ${notasPromediadas[i]}<br><span style='color: #c00'>DESAPROBADO</span> <hr></li>`);
         }
     }
     document.write('</ol>');
-
 }
 
-mostrarResumen(alumnos,notas);
+mostrarResumen(alumnos,notas)
