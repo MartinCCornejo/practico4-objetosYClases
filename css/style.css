@@ -13,3 +13,7 @@ h1{
 span{
     font-weight: bold;
 }
+
+li{
+    margin-bottom: 10px;
+}

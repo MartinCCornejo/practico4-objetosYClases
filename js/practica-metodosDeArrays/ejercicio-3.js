@@ -22,17 +22,20 @@ const buscarLibros = (biblioteca) => {
     const bibliotecaToLowerCase = biblioteca.map((elemento) => elemento.toLowerCase());  /* Hacemos que los elementos de la biblioteca se comviertan en minusculas para filtrar mejor la busqueda*/
     const libro = prompt(`Busque un libro por su titulo`);
 
-    document.write(`<h2>Resultado de busqueda de: '${libro}'</h2>`);
-
-    if (libro !== null && libro.length > 0) {
+    if (libro !== null) {
         const libroBuscado = bibliotecaToLowerCase.filter((elemento) => elemento.includes(libro.toLowerCase()));
+        document.write(`<h2>Resultado de busqueda de: '${libro}'</h2>`);
 
-        document.write(`<ul>`);
-        libroBuscado.map((elemento) => document.write(`<li>${elemento}</li>`))
-        document.write(`</ul>`);
-
+        if (libroBuscado.length > 0 && libro.length > 0) {
+            document.write(`<ul>`);
+            libroBuscado.map((elemento) => document.write(`<li>${elemento}</li>`))
+            document.write(`</ul>`);
+        } else {
+            document.write(`<h3 style='color:red;'>Libro no encontrado!</h3>`);
+        }
+        
     } else{
-        document.write(`<h3 style='color:red;'>Libro no encontrado!</h3>`);
+        alert('Cancelaste el programa');
     }
 }
 
