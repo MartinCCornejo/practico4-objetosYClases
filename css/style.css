@@ -1,0 +1,23 @@
+body{
+    font-family: sans-serif;
+}
+
+h1{
+    padding: 20px 5px;
+    background: #c00;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+span{
+    font-weight: bold;
+}
+
+li{
+    margin-bottom: 10px;
+}
+
+p{
+    font-weight: bold;
+}
