@@ -4,27 +4,37 @@
 // mostrar sus propiedades, calcular el perímetro y el área
 
 
-// Creamos el objeto para crear rectangulos
-const crearRectangulo = {
-    alto: 5,
-    ancho: 10,
-    modificarDatos: function(alto,ancho){
+// Creamos la clase que nos permita crear objetos rectangulos
+class Rectangulos {
+    constructor(alto,ancho){
         this.alto = alto;
         this.ancho = ancho;
-    },
-    verPropiedades: function(){
+    }
+
+    modificarPropiedades(nuevoAlto,nuevoAncho){
+        this.alto = nuevoAlto;
+        this.ancho = nuevoAncho;
+    }
+
+    verPropiedades(){
         let perimetro = 2 * (this.alto + this.ancho);
         let area = this.alto * this.ancho;
 
-        document.write(`<h2>Propiedades del rectangulo que tiene ${this.alto} de alto y ${this.ancho} de ancho</h2>`);
-        document.write(`<p>Perímetro del rectángulo: ${perimetro} <br>Área del rectángulo: ${area}</p>`);
+        document.write(`<h2>El rectangulo creado contiene las siguientes propiedades:</h2>`);
+        document.write(`<p>Alto: ${this.alto} <br>Ancho: ${this.ancho}</p>`);
+        document.write(`<p>Perímetro del rectángulo: ${perimetro} <br>Área del rectángulo: ${area} <hr></p>`)
     }
 }
 
+// Creamos los rectangulos especificando su largo y ancho como argumento
+const rectangulo1 = new Rectangulos(5,10);
+const rectangulo2 = new Rectangulos(5,3);
 
 // Iniciamos los metodos 
-crearRectangulo.verPropiedades();
-crearRectangulo.modificarDatos(10,20);
-crearRectangulo.verPropiedades();
-crearRectangulo.modificarDatos(5,3);
-crearRectangulo.verPropiedades();
+rectangulo1.verPropiedades();
+rectangulo1.modificarPropiedades(10,20)
+rectangulo1.verPropiedades();
+
+rectangulo2.verPropiedades();
+rectangulo2.modificarPropiedades(7,20)
+rectangulo2.verPropiedades();
