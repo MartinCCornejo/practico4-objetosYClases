@@ -5,7 +5,7 @@
 
 
 // Creamos la clase que nos permita crear objetos rectangulos
-class Rectangulos {
+class Rectangulo {
     constructor(alto,ancho){
         this.alto = alto;
         this.ancho = ancho;
@@ -27,8 +27,8 @@ class Rectangulos {
 }
 
 // Creamos los rectangulos especificando su largo y ancho como argumento
-const rectangulo1 = new Rectangulos(5,10);
-const rectangulo2 = new Rectangulos(5,3);
+const rectangulo1 = new Rectangulo(5,10);
+const rectangulo2 = new Rectangulo(5,3);
 
 // Iniciamos los metodos 
 rectangulo1.verPropiedades();
