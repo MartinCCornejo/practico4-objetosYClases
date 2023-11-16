@@ -46,17 +46,21 @@ class Agenda {
 
     existeContacto(Contacto){
         if (this.contactos.length > 0) {
+            let encontrado = false;
+            
             for (let i = 0; i < this.contactos.length; i++) {
                 if (this.contactos[i].nombre === Contacto) {
-                    alert(`El contacto '${Contacto}' si existe en la agenda`);
+                    encontrado = true;
                     break;
-                } else{
-                    alert(`El contacto '${Contacto}' NO exite en la agenda`);
-                    break;
-                }    
+                }
             }
-        } else{
-            alert('No existen contactos por el momento')
+            if (encontrado === true) {
+                alert(`El contacto '${Contacto}' sí existe en la agenda`);
+            } else {
+                alert(`El contacto '${Contacto}' NO existe en la agenda`);
+            }
+        } else {
+            alert('No existen contactos por el momento');
         }
     }
 
@@ -77,14 +81,17 @@ class Agenda {
 
     buscarContacto(nombre) {
         if (this.contactos.length > 0) {
+            let encontrado = false;
+
             for (let i = 0; i < this.contactos.length; i++) {
                 if (this.contactos[i].nombre === nombre) {
-                    alert(`El número de telefono del contacto ${nombre} es ${this.contactos[i].telefono}`);
-                    break;
-                } else {
-                    alert(`No se encontro el contacto '${nombre}'`);
+                    alert(`El número de teléfono del contacto ${nombre} es ${this.contactos[i].telefono}`);
+                    encontrado = true;
                     break;
                 }
+            }
+            if (!encontrado === true) {
+                alert(`No se encontró el contacto '${nombre}'`);
             }
         } else {
             alert('No existen contactos por el momento');
@@ -93,16 +100,18 @@ class Agenda {
 
     eliminarContacto(contacto){
         if (this.contactos.length > 0) {
+            let eliminado = false;
+
             for (let i = 0; i < this.contactos.length; i++) {
                 if (this.contactos[i].nombre === contacto) {
-                    this.contactos.splice(i,1);
-                    alert(`Contacto ${contacto} eliminado`);
-                    break;
-    
-                } else {
-                    alert(`No se encontro el contacto '${contacto}'`);
-                    break;
-                } 
+                    this.contactos.splice(i, 1);
+                    eliminado = true;
+                }
+            }
+            if (eliminado === true) {
+                alert(`Contacto ${contacto} eliminado`);
+            } else {
+                alert(`No se encontró el contacto '${contacto}' para eliminar`);
             }
         } else {
             alert('No existen contactos por el momento');
@@ -144,7 +153,7 @@ while(opcion !== '8' || opcion !== '3'){
         case '1':
             const nombre = prompt('Escriba el nombre del contacto');
             const numero = parseInt(prompt('Escriba el número'));
-            const contacto = new Contacto(nombre,numero);
+            let contacto = new Contacto(nombre,numero);
             agenda.añadirContacto(contacto);
             break;
         case '2':
