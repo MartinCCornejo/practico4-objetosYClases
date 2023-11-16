@@ -43,7 +43,9 @@ class Aeropuerto {
     // Cree un metodo adicional que me muestre los aviones dentro del aeropuerto 
     mostrarAviones(){
         document.write(`<h2>Aviones dentro del aeropuerto:</h2>`)
-        this.listaDeAviones.map((elemento) => document.write(`<ul><li/>${elemento.nombre}</li></ul>`))
+        document.write('<ul>');
+        this.listaDeAviones.map((elemento) => document.write(`<li/>${elemento.nombre}</li>`))
+        document.write('</ul>');
     }
 
 }
